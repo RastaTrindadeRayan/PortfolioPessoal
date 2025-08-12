@@ -1,0 +1,273 @@
+/* ========== RESET E CONFIGURAÇÕES GLOBAIS ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== VARIÁVEIS CSS PARA TEMAS ========== */
+:root {
+  --cor-texto: white;
+  --cor-fundo: radial-gradient(circle, rgb(76, 24, 24) 0%, #181862);
+  --cor-borda: rgba(51, 20, 0, 0.993);
+  --cor-superficie: rgba(218, 63, 0, 0.555);
+  --cor-superficie-hover: rgba(24, 42, 174, 0.488);
+  --icone-tema: url(./assets/moon-star.svg);
+}
+
+/* Tema claro */
+.Light {
+  --cor-texto: black;
+  --cor-fundo: radial-gradient(circle, rgb(242, 245, 83) 0%, #8484f2);
+  --cor-borda: rgb(0, 110, 255);
+  --cor-superficie: rgba(64, 191, 238, 0.274);
+  --icone-tema: url(./assets/sun.svg);
+}
+
+/* ========== CONFIGURAÇÕES DO CORPO DA PÁGINA ========== */
+body {
+  background: var(--cor-fundo) no-repeat top center/cover;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  color: var(--cor-texto);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========== CONTAINER PRINCIPAL ========== */
+#container {
+  width: 100%;
+  max-width: 588px;
+  margin: 56px auto 0px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+/* ========== SEÇÃO DO PERFIL ========== */
+#perfil {
+  padding: 24px;
+}
+
+#foto-perfil {
+  width: 112px;
+  border-radius: 50%;
+  border: 2px solid var(--cor-borda);
+  transition: border 0.3s ease, transform 0.3s ease;
+}
+
+#foto-perfil:hover {
+  border: 2px solid var(--cor-superficie-hover);
+  transform: scale(1.05);
+}
+
+#perfil h1 {
+  margin-top: 16px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+#perfil p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+  opacity: 0.9;
+}
+
+/* ========== ALTERNADOR DE TEMA ========== */
+#alternador-tema {
+  position: relative;
+  width: 64px;
+  margin: 4px auto;
+}
+
+#botao-tema {
+  width: 32px;
+  height: 32px;
+  background: white var(--icone-tema) no-repeat center;
+  border: 0;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+  animation: deslizar-volta 0.3s forwards;
+  cursor: pointer;
+  transition: outline 0.3s ease;
+}
+
+#botao-tema:hover {
+  outline: 8px solid var(--cor-superficie-hover);
+}
+
+.Light #botao-tema {
+  animation: deslizar-frente 0.3s forwards;
+}
+
+#alternador-tema span {
+  display: block;
+  width: 64px;
+  height: 24px;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 9999px;
+}
+
+/* ========== LINKS PRINCIPAIS ========== */
+#links-principais {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 0;
+}
+
+#links-principais li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--cor-texto);
+  transition: all 0.3s ease;
+}
+
+#links-principais li a:hover {
+  background: var(--cor-superficie-hover);
+  border: 1.5px solid var(--cor-texto);
+  transform: translateY(-2px);
+}
+
+/* ========== LINKS SOCIAIS ========== */
+#links-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 0;
+  font-size: 24px;
+}
+
+#links-sociais a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+  color: var(--cor-texto);
+}
+
+#links-sociais a:hover {
+  background: var(--cor-superficie-hover);
+  transform: scale(1.1);
+}
+
+/* ========== RODAPÉ ========== */
+footer {
+  padding: 24px 0;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.8;
+}
+
+footer p {
+  margin-top: 8px;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--cor-texto);
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--cor-superficie-hover);
+  text-decoration: underline;
+}
+
+/* ========== ANIMAÇÕES ========== */
+@keyframes deslizar-frente {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes deslizar-volta {
+  from {
+    left: 50%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+/* ========== RESPONSIVIDADE ========== */
+@media (max-width: 768px) {
+  #container {
+    margin: 32px auto 0px;
+    padding: 0 16px;
+  }
+
+  #perfil {
+    padding: 16px;
+  }
+
+  #foto-perfil {
+    width: 96px;
+  }
+
+  #perfil h1 {
+    font-size: 20px;
+  }
+
+  #links-principais li a {
+    padding: 14px 20px;
+    font-size: 14px;
+  }
+
+  #links-sociais {
+    font-size: 20px;
+  }
+
+  #links-sociais a {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  #container {
+    margin: 24px auto 0px;
+    padding: 0 12px;
+  }
+
+  #foto-perfil {
+    width: 80px;
+  }
+
+  #perfil h1 {
+    font-size: 18px;
+  }
+
+  #perfil p {
+    font-size: 14px;
+  }
+
+  #links-principais li a {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+}
