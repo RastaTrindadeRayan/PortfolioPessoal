@@ -58,7 +58,7 @@ body {
 
 #foto-perfil:hover {
   border: 2px solid var(--cor-superficie-hover);
-  transform: scale(1.05);
+  transform: scale(1.50);
 }
 
 #perfil h1 {
